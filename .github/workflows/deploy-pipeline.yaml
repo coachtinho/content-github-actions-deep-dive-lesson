@@ -81,7 +81,7 @@ jobs:
       - name: checkout code
         uses: actions/checkout@v2
       - name: create pages folder
-        run: mkdir pages
+        run: mkdir pages && chmod 777 docs
       - name: convert md to html
         uses: docker://pandoc/core:2.9
         with:
