@@ -80,14 +80,14 @@ jobs:
     steps:
       - name: checkout code
         uses: actions/checkout@v2
-      - name: create pages folder
-        run: mkdir pages && chmod 777 docs
+      - name: create docs folder
+        run: mkdir docs
       - name: convert md to html
         uses: docker://pandoc/core:2.9
         with:
-          args: docs/userguide.md -t html -o pages/index.html 
+          args: userguide.md -t html -o docs/index.html 
       - name: deploy site
         uses: JamesIves/github-pages-deploy-action@4.1.4
         with:
-          folder: pages
+          folder: docs
           branch: gh-pages
